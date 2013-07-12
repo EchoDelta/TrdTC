@@ -1,1 +1,8 @@
-<h3>${title}</h3>
+<html>
+<head>
+	<title>${title}</title>
+</head>
+<body>
+	<h1>Velkommen!</h1>
+</body>
+</html>
