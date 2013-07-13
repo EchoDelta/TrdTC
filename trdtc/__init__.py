@@ -7,5 +7,6 @@ def main(global_config, **settings):
     config = Configurator(settings=settings)
     config.add_static_view('static', 'static', cache_max_age=3600)
     config.add_route('main', '/')
+    config.add_route('api_getImages', '/api/images')
     config.scan()
     return config.make_wsgi_app()
