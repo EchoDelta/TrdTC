@@ -1,8 +1,26 @@
+<!DOCTYPE HTML>
 <html>
 <head>
 	<title>${title}</title>
+	<link rel="stylesheet" type="text/css" href="${request.static_url('trdtc:static/styles.css')}"/>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="${request.static_url('trdtc:static/scripts.js')}"></script>
+	<script src="http://api.flickr.com/services/feeds/photos_public.gne?tags=trondheim&format=json"></script>
 </head>
-<body>
-	<h1>Velkommen!</h1>
+<body class="page">
+	<header class="mainHeader">
+		<h1 class="heading">Trondheim Tech Corner</h1>
+		<nav class="menu">
+			<ul>
+				<li>
+					<a href="http://google.com/plus" >g+</a>
+				</li>
+				<li>
+					<a href="http://stats.trdtc.org" >#trdtc-stats</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<section class="credits">Foto: <a href="http://www.flickr.com/">Flickr</a></section>
 </body>
 </html>
