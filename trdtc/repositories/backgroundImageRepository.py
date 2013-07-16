@@ -20,11 +20,18 @@ class BackgroundImageRepository:
 			"nojsoncallback": 1,
 			"photo_id":image
 		})
-		return resp.json().get("sizes").get("size")[-1].get("source")
+		return self.__getImageOfSizeLessThan(resp.json().get("sizes").get("size"), 1024).get("source")
 
 
 
 	def __getImageIdsFromFlickr(self):
 		resp = requests.get(url = self._apiUrl, params = self._apiGetImagesParams)
 		return list({"id": photo.get("id")} for photo in resp.json().get("photos").get("photo"))
-		
+	
+	def __getImageOfSizeLessThan(self, imageSizes, size):
+		print imageSizes
+		maxsize = max(int(imageSize.get("width")) for imageSize in imageSizes if int(imageSize.get("width")) <= size)
+		for imageSize in imageSizes:
+			if(int(imageSize.get("width")) == maxsize):
+				return imageSize
+
